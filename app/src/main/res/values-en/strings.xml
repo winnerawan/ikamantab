@@ -1,0 +1,82 @@
+<resources>
+    <string name="app_name">Ikamantab</string>
+
+    <string name="app_name_caps">IKAMANTAB</string>
+    <string name="app_full_name_caps">IKATAN ALUMNI MAN TAMBAKBERAS</string>
+
+    <string name="title_activity_welcome">Home Screen</string>
+    <string name="next">NEXT</string>
+    <string name="skip">SKIP</string>
+    <string name="start">GOT IT</string>
+
+    <string name="slide_1_title">Welcome!</string>
+    <string name="slide_1_desc">Ikatan Keluarga Alumni Man Tambakberas!</string>
+
+    <string name="slide_2_title">Search Friends</string>
+    <string name="slide_2_desc">Find your friends here.</string>
+
+    <string name="slide_3_title">Stay Connected</string>
+    <string name="slide_3_desc">Register a new account and Login to connect with your friends</string>
+
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="forgotpassword">Forgot Password</string>
+    <string name="notregistered">Not Registered?</string>
+    <string name="register_now">Sign up now!</string>
+    <string name="signin">Sign In</string>
+    <string name="signup">Sign Up</string>
+    <string name="authenticating">Authenticating</string>
+    <string name="loginnull">Form Email and Password must be filled!</string>
+    <string name="emailnotvalid">Email not valid!</string>
+    <string name="checkconnection">Can\'t Login, Check your internet connection!</string>
+    <string name="notmatch">Wrong Email or Password!</string>
+
+    <!--register-->
+    <string name="jurusan_title">Department</string>
+    <string name="asrama_title">Hostel</string>
+    <string name="jenis_kelamin">Gender</string>
+    <string name="formnull">Form must be filled!</string>
+
+    <!--beranda-->
+    <string name="home">Home</string>
+    <string name="welcome_message">Welcome to IKAMANTAB\nto begin please update your profile</string>
+    <string name="update_prof">Update Profile</string>
+    <string name="share">Share</string>
+    <string name="mungkinkenal">Maybe You Know</string>
+    <string name="teman">Friends</string>
+    <string name="agenda">Agenda</string>
+    <string name="forum">Forum</string>
+    <string name="publikasi">Publication</string>
+    <string name="pengaturan">Settings</string>
+    <string name="logout">Logout</string>
+    <string name="iamantarab">IKA MANTAB</string>
+
+    <!--friends-->
+    <string name="connecting_people">Connect with your friends\nplease find your friends</string>
+    <string name="search">Search</string>
+    <string name="alone">You do not have friends\nPlease find your friends</string>
+    <string name="search_friends">Search Friends</string>
+
+    <!--profile-->
+    <string name="profile">Profile</string>
+    <string name="usernotfriends">Users who have not become your friend \n can not see your detail data</string>
+    <string name="addfriend">Add Friend</string>
+    <string name="cancel">Cancel</string>
+    <string name="requestfriend">Want to be your friends</string>
+    <string name="friendreq">Friend request</string>
+    <string name="confirm">Confirm</string>
+
+    <string name="bio">Biography</string>
+    <string name="profesi">Profession</string>
+    <string name="pelatihan">Training</string>
+    <string name="penghargaan">Awards</string>
+    <string name="referensi">Reference Recommendation</string>
+    <string name="minat">Interests Profession</string>
+
+    <string name="save">Save</string>
+    <string name="data_null">No data profession / experience, please add your data.</string>
+    <string name="edit">Edit</string>
+    <string name="add">Add</string>
+    <string name="setting">Settings</string>
+</resources>

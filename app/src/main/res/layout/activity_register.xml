@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2016. Ikamantab (Ikatan Keluarga Alumni Man Tambakberas).
+  ~ Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file   except in compliance with the License.
+  ~   You may obtain a copy of the License at
+  ~
+  ~        http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~   Unless required by applicable law or agreed to in writing, software
+  ~   distributed under the License is distributed on an "AS IS" BASIS,
+  ~   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~   See the License for the specific language governing permissions and
+  ~   limitations under the License..
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+
+    <include layout="@layout/toolbar"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/register_top">
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/ic_user"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:textColor="@color/text_grey"
+                android:hint="Nama"
+                android:letterSpacing="0.025"
+                android:background="#00000000"
+                android:textColorHint="@color/text_grey"
+                android:textSize="16dp"
+                android:padding="12dp"
+                android:id="@+id/txtName" />
+
+
+
+
+        </LinearLayout>
+
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:background="@color/line_grey"
+            />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="15dp"
+                android:tint="@color/colorPrimary"
+                android:src="@drawable/ic_mail_outline_white_24dp"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/text_grey"
+                android:hint="Email"
+                android:letterSpacing="0.025"
+                android:background="#00000000"
+                android:textColorHint="@color/text_grey"
+                android:textSize="16dp"
+                android:padding="12dp"
+                android:id="@+id/txtEmail" />
+
+
+
+
+        </LinearLayout>
+
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:background="@color/line_grey"
+            />
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/ic_password_green"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:textColor="@color/text_grey"
+                android:hint="Password"
+                android:letterSpacing="0.025"
+                android:background="#00000000"
+                android:textColorHint="@color/text_grey"
+                android:textSize="16dp"
+                android:padding="12dp"
+                android:id="@+id/txtPassword" />
+
+
+
+
+        </LinearLayout>
+
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:background="@color/line_grey"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/ic_user"/>
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_grey"
+                android:background="@android:color/white"
+                android:textColorHint="@color/text_grey"
+                android:textSize="16sp"
+                android:padding="2dp"
+                android:id="@+id/txtJenis" />
+
+
+
+
+        </LinearLayout>
+
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:background="@color/line_grey"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/ic_angkatan_green"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:textColor="@color/text_grey"
+                android:hint="Angkatan Lulus"
+                android:letterSpacing="0.025"
+                android:background="#00000000"
+                android:textColorHint="@color/text_grey"
+                android:textSize="16dp"
+                android:padding="12dp"
+                android:id="@+id/txtAngkatan" />
+
+
+
+
+        </LinearLayout>
+
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:background="@color/line_grey"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/ic_jurusan_green"/>
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_grey"
+                android:prompt="@string/jurusan_title"
+                android:background="@android:color/white"
+                android:textColorHint="@color/text_grey"
+                android:textSize="16sp"
+                android:padding="2dp"
+                android:id="@+id/txtJurusan" />
+
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:background="@color/line_grey"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/ic_asrama_green"/>
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_grey"
+                android:letterSpacing="0.025"
+                android:background="@null"
+                android:textColorHint="@color/text_grey"
+                android:textSize="16sp"
+                android:padding="2dp"
+                android:id="@+id/txtAsrama" />
+
+
+
+
+        </LinearLayout>
+
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:background="@color/line_grey"
+            />
+
+
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/bRegister"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:text="@string/signup"
+        android:textSize="16dp"
+        android:textColor="#fff"
+        android:textAlignment="center"
+        android:background="@drawable/round_blur"
+        android:layout_gravity="center"
+        android:letterSpacing="0.025"
+        android:padding="10dp"
+        android:layout_marginTop="@dimen/register_bottom" />
+
+
+</LinearLayout>

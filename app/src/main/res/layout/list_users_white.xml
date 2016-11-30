@@ -1,0 +1,71 @@
+<!--
+  ~ Copyright (c) 2016. Ikamantab (Ikatan Keluarga Alumni Man Tambakberas).
+  ~ Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file   except in compliance with the License.
+  ~   You may obtain a copy of the License at
+  ~
+  ~        http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~   Unless required by applicable law or agreed to in writing, software
+  ~   distributed under the License is distributed on an "AS IS" BASIS,
+  ~   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~   See the License for the specific language governing permissions and
+  ~   limitations under the License..
+  -->
+
+<LinearLayout
+    android:id="@+id/usersLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginTop="20dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <com.mantambakberas.ikamantab.helper.CircledNetworkImageView
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="40dp"
+        android:layout_gravity="center"
+        android:id="@+id/foto" />
+
+
+    <LinearLayout
+        android:layout_marginTop="35dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lunch"
+            android:letterSpacing="0.025"
+            android:textColor="@android:color/white"
+            android:layout_marginLeft="30dp"
+            android:textSize="20sp"
+
+            android:id="@+id/nama" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lunch Schedule Time"
+            android:layout_marginLeft="30dp"
+            android:letterSpacing="0.025"
+            android:textColor="@color/colortexthighlight"
+            android:textSize="14sp"
+            android:layout_marginTop="5dp"
+            android:id="@+id/jurusan" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="30dp"
+            android:background="@android:color/white"
+            android:layout_marginTop="25dp"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

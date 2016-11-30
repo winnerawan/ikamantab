@@ -1,0 +1,23 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+
+        <item
+            android:icon="@drawable/ic_action_ic_beranda"
+            android:tint="@color/colorPrimaryDark"
+            android:id="@+id/action_feedback"
+            android:title="Feedback" />
+        <item
+            android:icon="@drawable/ic_action_ic_beranda"
+            android:tint="@color/colorPrimaryDark"
+            android:id="@+id/action_disclaimer"
+            android:title="Disclaimer" />
+        <item
+            android:icon="@drawable/ic_action_ic_beranda"
+            android:tint="@color/colorPrimaryDark"
+            android:id="@+id/action_about"
+            android:title="About" />
+
+
+
+    </group>
+</menu>

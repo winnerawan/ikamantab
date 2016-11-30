@@ -1,0 +1,42 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="dots_height">30dp</dimen>
+    <dimen name="dots_margin_bottom">20dp</dimen>
+    <dimen name="img_width_height">120dp</dimen>
+    <dimen name="slide_title">30dp</dimen>
+    <dimen name="slide_desc">16dp</dimen>
+    <dimen name="desc_padding">40dp</dimen>
+    <dimen name="next_intro">0dp</dimen>
+
+    <!--dimens login-->
+    <dimen name="login_logo_margin_top">60dp</dimen>
+    <dimen name="login_email_margin_top">25dp</dimen>
+    <dimen name="login_pass_margin_top">15dp</dimen>
+    <dimen name="login_desc_margin_top">20dp</dimen>
+    <dimen name="text_size_login_desc">13sp</dimen>
+    <dimen name="button_sign_margin_top">40dp</dimen>
+    <dimen name="login_forgot_password_margin_top">15dp</dimen>
+    <dimen name="login_notregistered_margin_top">30dp</dimen>
+    <!--end dimens login-->
+
+    <!--dimens register-->
+    <dimen name="register_top">25dp</dimen>
+    <dimen name="register_bottom">35dp</dimen>
+
+    <!--dimens main-->
+    <dimen name="main_top">40dp</dimen>
+    <dimen name="main_size">280dp</dimen>
+    <dimen name="welcome_message_margin_top">50dp</dimen>
+    <dimen name="share_margin_top">35dp</dimen>
+    <dimen name="main_separate_header">0dp</dimen>
+    <dimen name="nav_header_vertical_spacing">16dp</dimen>
+    <dimen name="nav_main_name_pad_top">20dp</dimen>
+    <dimen name="nav_main_name_pad_bottom">5dp</dimen>
+    <dimen name="nav_photo">90dp</dimen>
+    <dimen name="nav_margin_top">20dp</dimen>
+    <dimen name="nav_pad_bootom">10dp</dimen>
+    <dimen name="nav_header1_height">200dp</dimen>
+</resources>

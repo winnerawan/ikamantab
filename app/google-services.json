@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "299154313748",
+    "firebase_url": "https://ikamantab-6eeb9.firebaseio.com",
+    "project_id": "ikamantab-6eeb9",
+    "storage_bucket": "ikamantab-6eeb9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:299154313748:android:1df4f48ff4b43299",
+        "android_client_info": {
+          "package_name": "com.mantambakberas.ikamantab"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "299154313748-op87ruitskb09cemu8coecb5fhrt3q6b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRQiGaScbBGDKOM9U6O_o2Zg80V3fnU3I"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

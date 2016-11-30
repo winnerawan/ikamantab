@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_search_detail"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context="com.mantambakberas.ikamantab.activity.SearchDetailActivity">
+
+    <include
+        android:id="@+id/menuToolbar"
+        layout="@layout/toolbar_search_detail"/>
+
+    <LinearLayout
+        android:id="@+id/divider"
+        android:layout_below="@id/menuToolbar"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@android:color/white"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_below="@id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/re_list_users"
+            android:layout_marginBottom="0dp"
+            android:layout_below="@id/linear_main1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+        </android.support.v7.widget.RecyclerView>
+    </LinearLayout>
+
+</RelativeLayout>

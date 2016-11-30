@@ -1,0 +1,680 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2016. Ikamantab (Ikatan Keluarga Alumni Man Tambakberas).
+  ~ Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file   except in compliance with the License.
+  ~   You may obtain a copy of the License at
+  ~
+  ~        http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~   Unless required by applicable law or agreed to in writing, software
+  ~   distributed under the License is distributed on an "AS IS" BASIS,
+  ~   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~   See the License for the specific language governing permissions and
+  ~   limitations under the License..
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:background="@android:color/white"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar_profile" />
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white">
+
+
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:scaleType="fitXY"
+            android:alpha="0.8" />
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:orientation="horizontal"
+            >
+
+
+            <com.mantambakberas.ikamantab.helper.CircledNetworkImageView
+                android:id="@+id/foto"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginStart="24dp"
+
+                />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="35dp"
+                    android:layout_marginStart="24dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/line_grey"
+                        android:textSize="20sp"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginStart="10dp"
+                        android:id="@+id/name" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colortexthighlight"
+                        android:textSize="16sp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginStart="10dp"
+                        android:id="@+id/info" />
+                    <TextView
+                        android:id="@+id/telp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colortexthighlight"
+                        android:textSize="16sp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginStart="10dp"/>
+
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+
+    </FrameLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="0.3"
+            android:textColor="@color/line_grey"
+            android:layout_height="wrap_content"
+            android:text="@string/usernotfriends"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:padding="20dp"/>
+
+
+    </LinearLayout>
+
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="#ACACAC"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                android:background="@color/divider_block"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/linear_bio">
+
+                <ImageView
+                    android:layout_width="12dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="16dp"
+                    android:src="@drawable/ic_bio"
+                    android:layout_height="12dp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="@string/bio"
+                    android:textColor="@color/line_grey"
+                    android:textSize="14sp"
+                    android:layout_marginEnd="20dp"
+                    android:padding="15dp"/>
+
+                <ImageView
+                    android:layout_width="12dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="5dp"
+                    android:src="@drawable/ic_setelan"
+                    android:layout_height="12dp" />
+
+                <TextView
+                    android:id="@+id/act_setelan"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.29"
+                    android:text="@string/setting"
+                    android:textColor="@color/line_grey"
+                    android:textSize="14sp"/>
+
+                <ImageView
+                    android:layout_width="12dp"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="5dp"
+                    android:src="@drawable/ic_ubah"
+                    android:layout_height="12dp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.22"
+                    android:text="@string/edit"
+                    android:textColor="@color/line_grey"
+                    android:textSize="14sp"
+                    android:id="@+id/bBio" />
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.1dp"
+                android:background="#ACACAC"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/linear_bio_desc">
+
+                <ImageView
+                    android:layout_width="12dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="16dp"
+                    android:src="@drawable/ic_mail_blue"
+                    android:layout_height="12dp" />
+
+                <TextView
+                    android:id="@+id/email"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/colortexthighlight"
+                    android:textSize="14sp"
+                    android:padding="12.5dp"/>
+
+
+            </LinearLayout>
+
+            <!--Bio-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/linear_teman_desc">
+
+                <ImageView
+                    android:layout_width="12dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="16dp"
+                    android:src="@drawable/ic_bio"
+                    android:layout_marginBottom="6.5dp"
+                    android:layout_height="12dp" />
+
+                <TextView
+                    android:id="@+id/biotext"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/line_grey"
+                    android:textSize="14sp"
+                    android:paddingStart="12.5dp"
+                    android:paddingEnd="12.5dp"
+                    android:paddingBottom="12.5dp"/>
+
+
+            </LinearLayout>
+
+            <!--End Bio-->
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.1dp"
+                android:background="#ACACAC"/>
+
+
+            <!--Profesi-->
+
+            <LinearLayout
+                android:background="@color/divider_block"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/linear_profesi">
+
+                <ImageView
+                    android:layout_width="12dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="16dp"
+                    android:src="@drawable/ic_profesi"
+                    android:layout_height="12dp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="@string/profesi"
+                    android:textColor="@color/line_grey"
+                    android:textSize="14sp"
+                    android:padding="15dp"/>
+
+                <ImageView
+                    android:id="@+id/ic_addProfesi"
+                    android:layout_width="12dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="5dp"
+                    android:src="@drawable/ic_plus"
+                    android:layout_height="12dp" />
+                <TextView
+                    android:id="@+id/bProfesi"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.13"
+                    android:text="@string/add"
+                    android:layout_marginStart="2dp"
+                    android:textColor="@color/line_grey"
+                    android:textSize="14sp"/>
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.1dp"
+                android:background="#ACACAC"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/linear_profesi_desc">
+                <TextView
+                    android:id="@+id/profesi"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/line_grey"
+                    android:textSize="14sp"
+                    android:layout_marginStart="15dp"
+                    android:padding="16dp"/>
+
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.1dp"
+                android:background="#ACACAC"/>
+
+            <!--End Profesi-->
+
+            <!--Pelatihan-->
+
+            <LinearLayout
+                android:background="@color/divider_block"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/linear_pelatihan">
+
+                <ImageView
+                    android:layout_width="12dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="16dp"
+                    android:src="@drawable/ic_pelatihan"
+                    android:layout_height="12dp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="@string/pelatihan"
+                    android:textColor="@color/line_grey"
+                    android:textSize="14sp"
+                    android:padding="15dp"/>
+
+                <ImageView
+                    android:layout_width="12dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="5dp"
+                    android:src="@drawable/ic_plus"
+                    android:layout_height="12dp"
+                    android:id="@+id/ic_addPelatihan" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.13"
+                    android:text="@string/add"
+                    android:layout_marginStart="2dp"
+                    android:textColor="@color/line_grey"
+                    android:textSize="14sp"
+                    android:id="@+id/bPelatihan" />
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.1dp"
+                android:background="#ACACAC"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/linear_pelatihan_desc">
+                <TextView
+                    android:id="@+id/pelatihan"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/line_grey"
+                    android:textSize="14sp"
+                    android:layout_marginStart="15dp"
+                    android:padding="16dp"/>
+
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.1dp"
+                android:background="#ACACAC"/>
+
+            <!--End Pelatihan-->
+
+            <!--Penghargaan-->
+
+            <LinearLayout
+                android:id="@+id/linear_penghargaan"
+                android:background="@color/divider_block"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="12dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="16dp"
+                    android:src="@drawable/ic_penghargaan"
+                    android:layout_height="12dp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="@string/penghargaan"
+                    android:textColor="@color/line_grey"
+                    android:textSize="14sp"
+                    android:padding="15dp"/>
+
+                <ImageView
+                    android:layout_width="12dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="5dp"
+                    android:src="@drawable/ic_plus"
+                    android:id="@+id/ic_addPenghargaan"
+                    android:layout_height="12dp" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.13"
+                    android:text="@string/add"
+                    android:layout_marginStart="2dp"
+                    android:textColor="@color/line_grey"
+                    android:textSize="14sp"
+                    android:id="@+id/bPenghargaan" />
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.1dp"
+                android:background="#ACACAC"/>
+
+
+            <LinearLayout
+                android:id="@+id/linear_penghargaan_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/penghargaan"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/line_grey"
+                    android:textSize="14sp"
+                    android:layout_marginStart="15dp"
+                    android:padding="16dp"/>
+
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.1dp"
+                android:background="#ACACAC"/>
+
+            <!--End Penghargaan-->
+
+
+            <!-- Referensi Rekomendasi-->
+
+            <LinearLayout
+                android:id="@+id/linear_rekomendasi"
+                android:background="@color/divider_block"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="12dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="16dp"
+                    android:src="@drawable/ic_referensi"
+                    android:layout_height="12dp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="@string/referensi"
+                    android:textColor="@color/line_grey"
+                    android:textSize="14sp"
+                    android:padding="15dp"/>
+
+                <ImageView
+                    android:layout_width="12dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="5dp"
+                    android:src="@drawable/ic_plus"
+                    android:id="@+id/ic_addReferensi"
+                    android:layout_height="12dp" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.13"
+                    android:text="@string/add"
+                    android:layout_marginStart="2dp"
+                    android:textColor="@color/line_grey"
+                    android:textSize="14sp"
+                    android:id="@+id/bReferensi" />
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.1dp"
+                android:background="#ACACAC"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/referensi"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/line_grey"
+                    android:textSize="14sp"
+                    android:layout_marginStart="15dp"
+                    android:padding="16dp"/>
+
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.1dp"
+                android:background="#ACACAC"/>
+
+            <!--End Referensi Rekomendasi-->
+
+            <!-- Minat Profesi-->
+
+            <LinearLayout
+                android:id="@+id/linear_minat"
+                android:background="@color/divider_block"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="12dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="16dp"
+                    android:src="@drawable/ic_minat_profesi"
+                    android:layout_height="12dp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="@string/minat"
+                    android:textColor="@color/line_grey"
+                    android:textSize="14sp"
+                    android:padding="15dp"/>
+
+                <ImageView
+                    android:layout_width="12dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="5dp"
+                    android:src="@drawable/ic_plus"
+                    android:id="@+id/ic_addMinat"
+                    android:layout_height="12dp" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.13"
+                    android:text="@string/add"
+                    android:layout_marginStart="2dp"
+                    android:textColor="@color/line_grey"
+                    android:textSize="14sp"
+                    android:id="@+id/bMinat" />
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.1dp"
+                android:background="#ACACAC"/>
+
+
+            <LinearLayout
+                android:id="@+id/linear_minat_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/minat"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/line_grey"
+                    android:textSize="14sp"
+                    android:layout_marginStart="15dp"
+                    android:padding="16dp"/>
+
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.1dp"
+                android:background="#ACACAC"/>
+
+            <!--End minat profesi-->
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+
+
+</LinearLayout>
+

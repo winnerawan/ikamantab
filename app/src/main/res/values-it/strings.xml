@@ -1,0 +1,81 @@
+<resources>
+    <string name="app_name">Ikamantab</string>
+
+    <string name="app_name_caps">IKAMANTAB</string>
+    <string name="app_full_name_caps">IKATAN ALUMNI MAN TAMBAKBERAS</string>
+
+    <string name="title_activity_welcome">Home Screen</string>
+    <string name="next">IL PROSSIMO</string>
+    <string name="skip">SALTA</string>
+    <string name="start">FATTO</string>
+
+    <string name="slide_1_title">Benvenuto</string>
+    <string name="slide_1_desc">Ikatan Keluarga Alumni Man Tambakberas!</string>
+
+    <string name="slide_2_title">Cerca Amici</string>
+    <string name="slide_2_desc">Trova i tuoi amici.</string>
+
+    <string name="slide_3_title">Rimani connesso</string>
+    <string name="slide_3_desc">Registra un nuovo account ed effettuare il login per connettersi con i tuoi amici</string>
+
+    <string name="email">E-mail</string>
+    <string name="password">Parola d\'ordine</string>
+    <string name="forgot_password">Hai dimenticato la password?</string>
+    <string name="forgotpassword">Hai dimenticato la password</string>
+    <string name="notregistered">Non registrato?</string>
+    <string name="register_now">Iscriviti ora!</string>
+    <string name="signin">Accedi</string>
+    <string name="signup">Registrati</string>
+    <string name="authenticating">Autenticazione</string>
+    <string name="loginnull">Modulo e-mail e la password devono essere riempiti!</string>
+    <string name="emailnotvalid">E-mail non valida!</string>
+    <string name="checkconnection">Non riesco ad accedere, verificare la connessione internet!</string>
+    <string name="notmatch"> E-mail o una password sbagliati!</string>
+
+    <!--register-->
+    <string name="jurusan_title">Jurusan</string>
+    <string name="asrama_title">Asrama</string>
+    <string name="jenis_kelamin">Jenis Kelamin</string>
+    <string name="formnull">Form tidak boleh kosong!</string>
+
+    <!--beranda-->
+    <string name="home">Beranda</string>
+    <string name = "WELCOME_MESSAGE">Benvenuti IKAMANTAB \nPer iniziare si prega di aggiornare il tuo profilo </string>
+    <string name = "update_prof">Aggiorna profilo </string>
+    <string name = "share">Condividi </string>
+    <string name = "mungkinkenal">Forse You Know </string>
+    <string name = "Teman">Amici </string>
+    <string name = "agenda">Agenda </string>
+    <string name = "Forum">Forum </string>
+    <string name = "publikasi">Pubblicazione </string>
+    <string name = "pengaturan">Impostazioni </string>
+    <string name = "logout">Esci </string>
+    <string name = "iamantarab">IKA MANTAB </string>
+
+    <!--friends-->
+    <string name="connecting_people">Terhubung dengan teman-teman Anda\nsilahkan cari teman Anda</string>
+    <string name="search">Cari</string>
+    <string name="alone">Anda belum memiliki daftar teman\nsilahkan cari teman Anda</string>
+    <string name="search_friends">Cari Teman</string>
+
+    <!--profile-->
+    <string name="profile">Profile</string>
+    <string name="usernotfriends">Pengguna yang belum menjadi teman Anda\ntidak dapat melihat data detail Anda</string>
+    <string name="addfriend">Tambahkan Teman</string>
+    <string name="cancel">Batalkan</string>
+    <string name="requestfriend">Want to be your friends</string>
+    <string name="friendreq">Permintaan teman</string>
+    <string name="confirm">Konfirmasi</string>
+
+    <string name="bio">Biografi</string>
+    <string name="profesi">Profesi</string>
+    <string name="pelatihan">Pelatihan</string>
+    <string name="penghargaan">Penghargaan</string>
+    <string name="referensi">Referensi Rekomendasi</string>
+    <string name="minat">Minat Profesi</string>
+    <string name="save">Simpan</string>
+    <string name="data_null">Belum ada data profesi / pengalaman, silahkan\ntambahkan data Anda.</string>
+    <string name="edit">Ubah</string>
+    <string name="add">Tambah</string>
+    <string name="setting">Setalan</string>
+</resources>
