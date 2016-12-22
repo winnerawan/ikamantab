@@ -131,4 +131,11 @@ public class AppController extends Application {
     public void setConnectivityListener(ConnectivityReceiver.ConnectivityReceiverListener listener) {
         ConnectivityReceiver.connectivityReceiverListener = listener;
     }
+
+    @Override
+    public void onLowMemory()
+    {
+        super.onLowMemory();
+        System.gc();
+    }
 }

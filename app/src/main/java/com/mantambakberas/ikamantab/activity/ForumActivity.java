@@ -95,6 +95,7 @@ public class ForumActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        overridePendingTransition(R.anim.anim_pop_right, R.anim.anim_push_right);
         setContentView(R.layout.activity_forum);
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
@@ -394,4 +395,13 @@ public class ForumActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(menuItem);
     }
     */
+
+    private void finishAction() {
+        finish();
+        overridePendingTransition(R.anim.anim_pop_left, R.anim.anim_push_left);
+    }
+
+    public void onBackPressed() {
+        finishAction();
+    }
 }

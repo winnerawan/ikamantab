@@ -14,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.AnimationUtils;
 
 import com.mantambakberas.ikamantab.R;
 import com.mantambakberas.ikamantab.adapter.ListFriendsAdapter;
@@ -49,6 +50,7 @@ public class FriendsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_friends);
+        overridePendingTransition(R.anim.anim_pop_right, R.anim.anim_push_right);
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
         ActionBar supportActionBar = getSupportActionBar();
@@ -95,6 +97,7 @@ public class FriendsActivity extends AppCompatActivity {
         ItemClickSupport.addTo(recyclerView).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
             @Override
             public void onItemClicked(RecyclerView recyclerView, int position, View v) {
+                v.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.image_click));
                 Friend f = friends.get(position);
                 Intent i = new Intent(FriendsActivity.this, FriendProfileActivity.class);
                 i.putExtra("name", f.getName());                            // 1
@@ -137,5 +140,14 @@ public class FriendsActivity extends AppCompatActivity {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void finishAction() {
+        finish();
+        overridePendingTransition(R.anim.anim_pop_left, R.anim.anim_push_left);
+    }
+
+    public void onBackPressed() {
+        finishAction();
     }
 }

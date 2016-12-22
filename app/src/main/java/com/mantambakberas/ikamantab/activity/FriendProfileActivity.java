@@ -25,6 +25,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -55,6 +56,7 @@ public class FriendProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        overridePendingTransition(R.anim.anim_pop_up, R.anim.anim_push_up);
         setContentView(R.layout.activity_friend_profile);
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
@@ -97,6 +99,7 @@ public class FriendProfileActivity extends AppCompatActivity {
         emailView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                view.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.image_click));
                 Intent mail = new Intent(Intent.ACTION_VIEW);
                 mail.setData(Uri.parse("mailto:"+email));
                 startActivity(mail);
@@ -104,5 +107,14 @@ public class FriendProfileActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    private void finishAction() {
+        finish();
+        overridePendingTransition(R.anim.anim_pop_down, R.anim.anim_push_down);
+    }
+
+    public void onBackPressed() {
+        finishAction();
     }
 }

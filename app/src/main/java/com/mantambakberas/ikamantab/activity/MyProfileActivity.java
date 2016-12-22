@@ -39,6 +39,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -57,6 +58,7 @@ import com.mantambakberas.ikamantab.R;
 import com.mantambakberas.ikamantab.config.ApiInterface;
 import com.mantambakberas.ikamantab.config.AppConfig;
 import com.mantambakberas.ikamantab.config.AppController;
+import com.mantambakberas.ikamantab.helper.CircleTransform;
 import com.mantambakberas.ikamantab.helper.CircledNetworkImageView;
 import com.mantambakberas.ikamantab.helper.CropOption;
 import com.mantambakberas.ikamantab.helper.CropOptionAdapter;
@@ -65,6 +67,7 @@ import com.mantambakberas.ikamantab.model.Me;
 import com.mantambakberas.ikamantab.request.RequestWithKey;
 import com.mantambakberas.ikamantab.request.RequestWithoutKey;
 import com.mantambakberas.ikamantab.response.BaseResponse;
+import com.squareup.picasso.Picasso;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -76,6 +79,7 @@ import java.util.Map;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import de.hdodenhof.circleimageview.CircleImageView;
 import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
@@ -97,7 +101,7 @@ public class MyProfileActivity extends AppCompatActivity {
     String name,email,foto,info,profesi,penghargaan,pelatihan,minat,rekomendasi,api_key;
 
     @Bind(R.id.menuToolbar) Toolbar toolbar;
-    @Bind(R.id.foto) CircledNetworkImageView fotoView;
+    @Bind(R.id.foto) CircleImageView fotoView;
     @Bind(R.id.name) TextView nameView;
     @Bind(R.id.info) TextView infoView;
     @Bind(R.id.telp) TextView telpView;
@@ -125,6 +129,7 @@ public class MyProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        overridePendingTransition(R.anim.anim_pop_left, R.anim.anim_push_left);
         setContentView(R.layout.activity_my_profile);
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
@@ -154,6 +159,7 @@ public class MyProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Update Biography
+                view.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.image_click));
                 txtBio = new EditText(getApplicationContext());
                 txtBio.setTextColor(getResources().getColor(android.R.color.black));
                 alert.setTitle(getResources().getString(R.string.bio));
@@ -194,7 +200,7 @@ public class MyProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Update Profesi
-
+                view.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.image_click));
                 txtProfesi = new EditText(getApplicationContext());
                 txtProfesi.setTextColor(getResources().getColor(android.R.color.black));
                 alert.setTitle(getResources().getString(R.string.profesi));
@@ -235,6 +241,7 @@ public class MyProfileActivity extends AppCompatActivity {
         bPelatihan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                view.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.image_click));
                 txtPelatihan = new EditText(getApplicationContext());
                 txtPelatihan.setTextColor(getResources().getColor(android.R.color.black));
                 alert.setTitle(getResources().getString(R.string.pelatihan));
@@ -275,6 +282,7 @@ public class MyProfileActivity extends AppCompatActivity {
         bPenghargaan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                view.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.image_click));
                 txtPenghargaan = new EditText(getApplicationContext());
                 txtPenghargaan.setTextColor(getResources().getColor(android.R.color.black));
                 alert.setTitle(getResources().getString(R.string.penghargaan));
@@ -315,6 +323,7 @@ public class MyProfileActivity extends AppCompatActivity {
         bReferensi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                view.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.image_click));
                 txtReferensi = new EditText(getApplicationContext());
                 txtReferensi.setTextColor(getResources().getColor(android.R.color.black));
                 alert.setTitle(getResources().getString(R.string.referensi));
@@ -355,6 +364,7 @@ public class MyProfileActivity extends AppCompatActivity {
         bMinat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                view.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.image_click));
                 txtMinat = new EditText(getApplicationContext());
                 txtMinat.setTextColor(getResources().getColor(android.R.color.black));
                 alert.setTitle(getResources().getString(R.string.minat));
@@ -459,6 +469,7 @@ public class MyProfileActivity extends AppCompatActivity {
         fotoView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                view.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.image_click));
                 dialog.show();
             }
         });
@@ -484,7 +495,6 @@ public class MyProfileActivity extends AppCompatActivity {
                         // Log.e(TAG, "foto : "+getStringImage(photo));
                         // TODO: Method Upload Foto
                         updateFoto();
-                        getMyInformation(api_key);
                     }
                     File f = new File(mImageCaptureUri.getPath());
                     if (f.exists()) f.delete();
@@ -582,7 +592,10 @@ public class MyProfileActivity extends AppCompatActivity {
                 me = _me;
                 emailView.setText(_me.getEmail());
                 nameView.setText(_me.getName());
-                fotoView.setImageUrl(_me.getFoto(), imageLoader);
+                //fotoView.setImageUrl(_me.getFoto(), imageLoader);
+                String foto = _me.getFoto();
+                String foto_url = foto + "?time=" + System.currentTimeMillis();
+                Picasso.with(getApplicationContext()).load(Uri.parse(foto_url)).transform(new CircleTransform()).into(fotoView);
                 infoView.setText(_me.getJurusan()+" - "+_me.getAngkatan());
                 telpView.setText(_me.getTelp());
                 bioView.setText(_me.getBio());
@@ -703,5 +716,14 @@ public class MyProfileActivity extends AppCompatActivity {
                     PICK_FROM_FILE);
             return;
         }
+    }
+
+    private void finishAction() {
+        finish();
+        overridePendingTransition(R.anim.anim_pop_right, R.anim.anim_push_right);
+    }
+
+    public void onBackPressed() {
+        finishAction();
     }
 }

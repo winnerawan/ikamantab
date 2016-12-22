@@ -2,6 +2,7 @@ package com.mantambakberas.ikamantab.activity;
 
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
 import android.support.graphics.drawable.VectorDrawableCompat;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.ActionBar;
@@ -18,6 +19,7 @@ import com.android.volley.toolbox.ImageLoader;
 import com.mantambakberas.ikamantab.R;
 import com.mantambakberas.ikamantab.config.ApiInterface;
 import com.mantambakberas.ikamantab.config.AppController;
+import com.mantambakberas.ikamantab.helper.CircleTransform;
 import com.mantambakberas.ikamantab.helper.CircledNetworkImageView;
 import com.mantambakberas.ikamantab.helper.SQLiteHandler;
 import com.mantambakberas.ikamantab.request.RequestWithKey;
@@ -25,11 +27,13 @@ import com.mantambakberas.ikamantab.request.RequestWithoutKey;
 import com.mantambakberas.ikamantab.response.BaseResponse;
 import com.mantambakberas.ikamantab.response.HasAddedResponse;
 import com.mantambakberas.ikamantab.response.NotifResponse;
+import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import de.hdodenhof.circleimageview.CircleImageView;
 import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
@@ -42,7 +46,7 @@ public class UserProfileActivity extends AppCompatActivity {
     ImageLoader imageLoader = AppController.getInstance().getImageLoader();
     SQLiteHandler db;
     @Bind(R.id.toolbarFriend) Toolbar toolbar;
-    @Bind(R.id.foto) CircledNetworkImageView fotoView;
+    @Bind(R.id.foto) CircleImageView fotoView;
     @Bind(R.id.name) TextView nameView;
     @Bind(R.id.info) TextView infoView;
     @Bind(R.id.bAdd) Button bAdd;
@@ -50,6 +54,7 @@ public class UserProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        overridePendingTransition(R.anim.anim_pop_up, R.anim.anim_push_up);
         setContentView(R.layout.activity_user_profile);
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
@@ -77,7 +82,9 @@ public class UserProfileActivity extends AppCompatActivity {
         api_key = user.get("api_key");
         user_id = user.get("user_id");
 
-        fotoView.setImageUrl(foto, imageLoader);
+        //fotoView.setImageUrl(foto, imageLoader);
+        String foto_url = foto + "?time=" + System.currentTimeMillis();
+        Picasso.with(getApplicationContext()).load(Uri.parse(foto_url)).transform(new CircleTransform()).into(fotoView);
         nameView.setText(name);
         infoView.setText(info);
 
@@ -176,5 +183,14 @@ public class UserProfileActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void finishAction() {
+        finish();
+        overridePendingTransition(R.anim.anim_pop_down, R.anim.anim_push_down);
+    }
+
+    public void onBackPressed() {
+        finishAction();
     }
  }

@@ -15,6 +15,7 @@
 package com.mantambakberas.ikamantab.adapter;
 
 import android.content.Context;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,10 +27,14 @@ import com.android.volley.toolbox.ImageLoader;
 import com.mantambakberas.ikamantab.R;
 import com.mantambakberas.ikamantab.config.AppConfig;
 import com.mantambakberas.ikamantab.config.AppController;
+import com.mantambakberas.ikamantab.helper.CircleTransform;
 import com.mantambakberas.ikamantab.helper.CircledNetworkImageView;
 import com.mantambakberas.ikamantab.model.Friend;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * Created by winnerawan on 10/18/16.
@@ -47,14 +52,14 @@ public class ListFriendsAdapter extends RecyclerView.Adapter<ListFriendsAdapter.
         LinearLayout friendsLayout;
         TextView nameView;
         TextView jurusanView;
-        CircledNetworkImageView fotoView;
+        CircleImageView fotoView;
 
         public UsersViewHolder(View v) {
             super(v);
             friendsLayout = (LinearLayout) v.findViewById(R.id.usersLayout);
             nameView = (TextView) v.findViewById(R.id.nama);
             jurusanView = (TextView) v.findViewById(R.id.jurusan);
-            fotoView = (CircledNetworkImageView) v.findViewById(R.id.foto);
+            fotoView = (CircleImageView) v.findViewById(R.id.foto);
         }
     }
 
@@ -76,9 +81,13 @@ public class ListFriendsAdapter extends RecyclerView.Adapter<ListFriendsAdapter.
         String default_jur = "";
         holder.nameView.setText(friends.get(position).getName());
         if (friends.get(position).getFoto()==null) {
-            holder.fotoView.setImageUrl(default_foto, imageLoader);
+            //holder.fotoView.setImageUrl(default_foto, imageLoader);
+            Picasso.with(context).load(Uri.parse(default_foto)).transform(new CircleTransform()).into(holder.fotoView);
         } else {
-            holder.fotoView.setImageUrl(friends.get(position).getFoto(), imageLoader);
+            //holder.fotoView.setImageUrl(friends.get(position).getFoto(), imageLoader);
+            String foto = friends.get(position).getFoto();
+            String foto_url = foto + "?time=" + System.currentTimeMillis();
+            Picasso.with(context).load(Uri.parse(foto_url)).transform(new CircleTransform()).into(holder.fotoView);
         } if (friends.get(position).getAngkatan()==null) {
             holder.jurusanView.setText("");
         } else {

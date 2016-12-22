@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -82,6 +83,7 @@ public class LoginActivity extends AppCompatActivity implements ConnectivityRece
         bForgot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                view.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.image_click));
                 Intent i = new Intent(LoginActivity.this, ForgotPasswordActivity.class);
                 startActivity(i);
             }
@@ -91,6 +93,7 @@ public class LoginActivity extends AppCompatActivity implements ConnectivityRece
         link_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                view.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.image_click));
                 Intent i = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(i);
             }
@@ -101,6 +104,7 @@ public class LoginActivity extends AppCompatActivity implements ConnectivityRece
         bSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                view.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.image_click));
                 Validation validation = new Validation();
                 String email = txtEmail.getText().toString().trim();
                 String password = txtPassword.getText().toString().trim();

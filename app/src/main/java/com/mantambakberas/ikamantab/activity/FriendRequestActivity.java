@@ -12,6 +12,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.animation.AnimationUtils;
 
 import com.mantambakberas.ikamantab.R;
 import com.mantambakberas.ikamantab.adapter.ListFriendsAdapter;
@@ -89,6 +90,7 @@ public class FriendRequestActivity extends AppCompatActivity {
         ItemClickSupport.addTo(recyclerView).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
             @Override
             public void onItemClicked(RecyclerView recyclerView, int position, View v) {
+                v.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.image_click));
                 Friend f = friends.get(position);
                 Intent i = new Intent(FriendRequestActivity.this, AcceptFriendActivity.class);
                 i.putExtra("friend", f.getId().toString());

@@ -7,8 +7,11 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
 import android.os.Build;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.graphics.drawable.VectorDrawableCompat;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.content.res.ResourcesCompat;
@@ -26,6 +29,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,6 +44,7 @@ import com.mantambakberas.ikamantab.config.ApiInterface;
 import com.mantambakberas.ikamantab.config.AppConfig;
 import com.mantambakberas.ikamantab.config.AppController;
 import com.mantambakberas.ikamantab.gcm.GcmIntentService;
+import com.mantambakberas.ikamantab.helper.CircleTransform;
 import com.mantambakberas.ikamantab.helper.CircledNetworkImageView;
 import com.mantambakberas.ikamantab.helper.ItemClickSupport;
 import com.mantambakberas.ikamantab.helper.NotificationUtils;
@@ -50,6 +56,7 @@ import com.mantambakberas.ikamantab.model.Friend;
 import com.mantambakberas.ikamantab.request.RequestWithKey;
 import com.mantambakberas.ikamantab.response.FriendsResponse;
 import com.mantambakberas.ikamantab.response.UsersResponse;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -62,6 +69,8 @@ import retrofit.RequestInterceptor;
 import retrofit.RestAdapter;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
+
+import static com.mantambakberas.ikamantab.R.id.coordinatorLayout;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -88,19 +97,26 @@ public class MainActivity extends AppCompatActivity {
     //Navigation info
     @Bind(R.id.name) TextView nameView;
     @Bind(R.id.email) TextView emailView;
-    @Bind(R.id.foto) CircledNetworkImageView fotoView;
+    @Bind(R.id.foto) ImageView fotoView;
 
     //navigation action
     @Bind(R.id.beranda) TextView act_home;
     @Bind(R.id.logout) TextView act_logout;
     @Bind(R.id.teman) TextView act_teman;
+    @Bind(R.id.agenda) TextView act_agenda;
+    @Bind(R.id.publikasi) TextView act_publikasi;
+    @Bind(R.id.iamantarab) TextView act_iamantarab;
+    @Bind(R.id.pengaturan) TextView act_pengaturan;
     @Bind(R.id.forum) TextView act_forum;
+
+    @Bind(R.id.coordinatorLayout) CoordinatorLayout coordinatorLayout;
 
     private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        overridePendingTransition(R.anim.anim_pop_down, R.anim.anim_push_down);
         db = new SQLiteHandler(getApplicationContext());
         HashMap<String, String> user = db.getUserDetails();
         api_key = user.get("api_key");
@@ -181,6 +197,7 @@ public class MainActivity extends AppCompatActivity {
         bProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                view.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.image_click));
                 Intent i = new Intent(MainActivity.this, MyProfileActivity.class);
                 startActivity(i);
             }
@@ -189,10 +206,11 @@ public class MainActivity extends AppCompatActivity {
         bShare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                view.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.image_click));
                 Intent iShare = new Intent(Intent.ACTION_SEND);
                 iShare.setType("text/plain");
                 iShare.putExtra(Intent.EXTRA_SUBJECT, name);
-                String share = "http://76.164.195.171/api/v1/user/"+user_id;
+                String share = AppConfig.BASE_URL+"/api/v1/user/"+user_id;
                 iShare.putExtra(Intent.EXTRA_TEXT, share);
                 startActivity(Intent.createChooser(iShare, "Share..."));
             }
@@ -209,6 +227,7 @@ public class MainActivity extends AppCompatActivity {
         fotoView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                view.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.image_click));
                 Intent i = new Intent(MainActivity.this, MyProfileActivity.class);
                 startActivity(i);
             }
@@ -217,20 +236,53 @@ public class MainActivity extends AppCompatActivity {
         act_teman.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                view.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.image_click));
                 setLayouFriends(api_key);
+            }
+        });
+
+        act_agenda.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                view.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.image_click));
+                underDev();
             }
         });
         act_forum.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                view.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.image_click));
                 Intent i = new Intent(MainActivity.this, ForumActivity.class);
                 startActivity(i);
+            }
+        });
+        act_publikasi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                view.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.image_click));
+                underDev();
+            }
+        });
+        act_iamantarab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                view.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.image_click));
+                underDev();
+            }
+        });
+
+        act_pengaturan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                view.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.image_click));
+                underDev();
             }
         });
 
         act_logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                view.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.image_click));
                 logoutUser();
             }
         });
@@ -318,6 +370,7 @@ public class MainActivity extends AppCompatActivity {
         ItemClickSupport.addTo(recyclerView).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
             @Override
             public void onItemClicked(RecyclerView recyclerView, int position, View v) {
+                v.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.image_click));
                 Users u = users.get(position);
                 Intent i = new Intent(MainActivity.this, UserProfileActivity.class);
                 i.putExtra("me", user_id);
@@ -446,14 +499,39 @@ public class MainActivity extends AppCompatActivity {
         api.getListAllFriends(new Callback<FriendsResponse>() {
             @Override
             public void success(FriendsResponse friendsResponse, Response response) {
+                // cek status error || tidak error
                 boolean error = friendsResponse.getError();
+                // jika tidak error
                 if (!error) {
+                    // jika belum punya teman, ( awal register)
                     if (friendsResponse.getFriends().size()==0) {
+                        // tampilkan semua list pengguna
                         getListAllUsers();
+                        // jika sudah punya teman, (lebih dari 1) (login)
                     } else if (friendsResponse.getFriends().size()>=1) {
+                        // tampilkan sugesti teman
                         getFriendSuggestion(api_key);
                     }
                 }
+            }
+            @Override
+            public void failure(RetrofitError error) {
+
+            }
+        });
+    }
+
+    public void getMyInformation(final String api_key) {
+        RequestWithKey req = new RequestWithKey();
+        ApiInterface api = req.RequestWithToken(api_key).create(ApiInterface.class);
+        api.getmyinfo(new Callback<Me>() {
+            @Override
+            public void success(Me me, Response response) {
+                my = me;
+                //fotoView.setImageUrl(me.getFoto(), imageLoader);
+                String foto = me.getFoto();
+                String foto_url = foto + "?time=" + System.currentTimeMillis();
+                Picasso.with(getApplicationContext()).load(Uri.parse(foto_url)).transform(new CircleTransform()).into(fotoView);
             }
 
             @Override
@@ -463,20 +541,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void getMyInformation(final String api_key) {
-        RequestWithKey req = new RequestWithKey();
-        ApiInterface api = req.RequestWithToken(api_key).create(ApiInterface.class);
-        api.getmyinfo(new Callback<Me>() {
-            @Override
-            public void success(Me me, Response response) {
-                my = me;
-                fotoView.setImageUrl(me.getFoto(), imageLoader);
-            }
-
-            @Override
-            public void failure(RetrofitError error) {
-
-            }
-        });
+    private void underDev() {
+        Snackbar snackbar = Snackbar
+                .make(coordinatorLayout, "Maaf fitur ini sedang dalam pengembangan. Mohon menunggu", Snackbar.LENGTH_LONG);
+        snackbar.show();
     }
 }

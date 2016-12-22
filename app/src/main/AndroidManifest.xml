@@ -65,7 +65,8 @@
 
 
         <!-- ./Firebase Notifications -->
-        <activity android:name=".activity.ForgotPasswordActivity" />
+        <activity android:name=".activity.ForgotPasswordActivity"
+            android:parentActivityName=".activity.LoginActivity"/>
 
         <!-- START Added for GCM -->
         <receiver
@@ -119,14 +120,17 @@
         <activity
             android:name=".activity.SearchDetailActivity"
             android:parentActivityName=".activity.MainActivity" />
-        <activity android:name=".activity.UserProfileActivity" />
-        <activity android:name=".activity.FriendRequestActivity" />
-        <activity android:name=".activity.AcceptFriendActivity" />
+        <activity android:name=".activity.UserProfileActivity"
+            android:parentActivityName=".activity.MainActivity"/>
+        <activity android:name=".activity.FriendRequestActivity"
+            android:parentActivityName=".activity.FriendsActivity"/>
+        <activity android:name=".activity.AcceptFriendActivity"
+            android:parentActivityName=".activity.FriendsActivity"/>
         <activity android:name=".activity.SharedActivity"
             android:exported="true">
             <intent-filter>
                 <data
-                    android:host="76.164.195.171"
+                    android:host="128.199.210.113"
                     android:scheme="http" />
 
                 <action android:name="android.intent.action.VIEW" />

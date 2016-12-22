@@ -43,12 +43,14 @@
     <string name="emailnotvalid">Format Email tidak valid!</string>
     <string name="checkconnection">Gagal login, periksa koneksi internet anda!</string>
     <string name="notmatch">Email atau Password salah!</string>
+    <string name="send">Kirim</string>
 
     <!--register-->
     <string name="jurusan_title">Jurusan</string>
     <string name="asrama_title">Asrama</string>
     <string name="jenis_kelamin">Jenis Kelamin</string>
     <string name="formnull">Form tidak boleh kosong!</string>
+    <string name="angkatan">Angkatan</string>
 
     <!--beranda-->
     <string name="home">Beranda</string>

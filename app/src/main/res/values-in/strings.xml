@@ -34,6 +34,9 @@
     <string name="asrama_title">Asrama</string>
     <string name="jenis_kelamin">Jenis Kelamin</string>
     <string name="formnull">Form tidak boleh kosong!</string>
+    <string name="angkatan">Angkatan</string>
+    <string name="send">Kirim</string>
+
 
     <!--beranda-->
     <string name="home">Beranda</string>

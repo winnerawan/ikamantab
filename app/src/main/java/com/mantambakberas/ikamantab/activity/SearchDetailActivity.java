@@ -17,6 +17,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.AnimationUtils;
+import android.widget.ProgressBar;
 
 import com.mantambakberas.ikamantab.R;
 import com.mantambakberas.ikamantab.adapter.ListUsersAdapter;
@@ -47,6 +49,7 @@ public class SearchDetailActivity extends AppCompatActivity implements SearchVie
     @Bind(R.id.menuToolbar) Toolbar toolbar;
     SQLiteHandler db;
     @Bind(R.id.re_list_users) RecyclerView recyclerView;
+    @Bind(R.id.loading) ProgressBar pBar;
     List<Users> users;
     String api_key, me;
     ListUsersAdapter adapter;
@@ -54,6 +57,7 @@ public class SearchDetailActivity extends AppCompatActivity implements SearchVie
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        overridePendingTransition(R.anim.anim_pop_down, R.anim.anim_push_down);
         setContentView(R.layout.activity_search_detail);
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
@@ -73,6 +77,9 @@ public class SearchDetailActivity extends AppCompatActivity implements SearchVie
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         getAllUser(api_key);
         adapter = new ListUsersAdapter(users, R.layout.list_users_white, getApplicationContext());
+        pBar.setVisibility(View.GONE);
+
+
     }
 
     @Override
@@ -112,6 +119,8 @@ public class SearchDetailActivity extends AppCompatActivity implements SearchVie
             if (name.contains(query) || angkatan.contains(query) || jurusan.contains(query)
                     || email.contains(query)) {
                 filteredModelList.add(model);
+            } else {
+                //
             }
 
         }
@@ -142,6 +151,7 @@ public class SearchDetailActivity extends AppCompatActivity implements SearchVie
         ItemClickSupport.addTo(recyclerView).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
             @Override
             public void onItemClicked(RecyclerView recyclerView, final int position, View v) {
+                v.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.image_click));
                 // cek sudah berteman apa belum
                 RequestWithoutKey req = new RequestWithoutKey();
                 ApiInterface api = req.RequestWithoutKey().create(ApiInterface.class);
@@ -200,6 +210,13 @@ public class SearchDetailActivity extends AppCompatActivity implements SearchVie
         });
     }
 
+    private void finishAction() {
+        finish();
+        overridePendingTransition(R.anim.anim_pop_up, R.anim.anim_push_up);
+    }
 
+    public void onBackPressed() {
+        finishAction();
+    }
 
 }

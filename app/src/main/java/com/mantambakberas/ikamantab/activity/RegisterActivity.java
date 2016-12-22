@@ -43,6 +43,7 @@ import com.mantambakberas.ikamantab.response.JurusanResponse;
 import com.mantambakberas.ikamantab.response.RegisterResponse;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import butterknife.Bind;
@@ -67,7 +68,7 @@ public class RegisterActivity extends AppCompatActivity {
     @Bind(R.id.txtEmail) EditText txtEmail;
     @Bind(R.id.txtPassword) EditText txtPassword;
     @Bind(R.id.txtJenis) Spinner txtJenis;
-    @Bind(R.id.txtAngkatan) EditText txtAngkatan;
+    @Bind(R.id.txtAngkatan) Spinner txtAngkatan;
     @Bind(R.id.txtJurusan) Spinner txtJurusan;
     @Bind(R.id.txtAsrama) Spinner txtAsrama;
 
@@ -100,6 +101,8 @@ public class RegisterActivity extends AppCompatActivity {
                 validation = new Validation();
                 if(!name.isEmpty() && !email.isEmpty() && !pass.isEmpty() && validation.checkEmail(email)) {
                     registerUser(name, email, pass);
+
+
                     //validation
                 } else {
                     Toast.makeText(getApplicationContext(), getResources().getString(R.string.formnull), Toast.LENGTH_SHORT).show();
@@ -107,23 +110,33 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
     }
+
     //register logic
     private void registerUser(final String name, final String email, final String password) {
         RestAdapter restAdapter = new RestAdapter.Builder().setEndpoint(AppConfig.BASE_URL).build();
         final ApiInterface apiInterface = restAdapter.create(ApiInterface.class);
-
         apiInterface.register(name, email, password, new Callback<RegisterResponse>() {
             @Override
             public void success(RegisterResponse apiResponse, Response response) {
+                // ambil nilai error dari api
                 boolean err = apiResponse.getError();
+                // jika tidak error
                 if (!err) {
-                    registerInfo(txtJenis.getSelectedItem().toString(), txtAngkatan.getText().toString(), String.valueOf(txtJurusan.getSelectedItemId()+1), String.valueOf(txtAsrama.getSelectedItemId()+1));
-                    Log.e(TAG, "reginfo :"+txtJurusan.getId());
+                    // log || ngga penting
+                    String angkatan_lulus = txtAngkatan.getSelectedItem().toString();
+                    // register info || insert ke user_detail --> go to method registerInfo @ line 152
+                    registerInfo(txtJenis.getSelectedItem().toString(), angkatan_lulus, String.valueOf(txtJurusan.getSelectedItemId()+1), String.valueOf(txtAsrama.getSelectedItemId()+1));
+                    // log || ngga penting
+                    Log.e(TAG, "reginfo :"+angkatan_lulus);
+                    // start activity
                     Intent i = new Intent(RegisterActivity.this, LoginActivity.class);
                     startActivity(i);
+                    // done, jika back button pressed , jangan balik ke login aktiviti
                     finish();
                 } else {
+                    // jika error || ambil error dari api
                     String message_error = apiResponse.getMessage();
+                    // tampilkan toast error
                     Toast.makeText(getApplicationContext(), message_error, Toast.LENGTH_LONG).show();
                 }
             }
@@ -172,6 +185,7 @@ public class RegisterActivity extends AppCompatActivity {
                 listJurusan = jurusanResponse.getJurusan();
                 populateJurusan();
                 populateJenisKelamin();
+                populateAngkatan();
             }
 
             @Override
@@ -209,6 +223,7 @@ public class RegisterActivity extends AppCompatActivity {
         txtJurusan.setAdapter(new NothingSelectedSpinnerAdapter(adapter, R.layout.spinner_item_jurusan, this));
     }
 
+    // set asrama
     private void populateAsrama() {
         String[] asrama = new String[listAsrama.size()];
         for (int i=0; i<listAsrama.size(); i++) {
@@ -227,5 +242,17 @@ public class RegisterActivity extends AppCompatActivity {
         adapter = new ArrayAdapter<String>(this, R.layout.spinner_jenis_kelamin, jenisKelamin);
         txtJenis.setAdapter(new NothingSelectedSpinnerAdapter(adapter, R.layout.spinner_jenis_kelamin, this));
 
+    }
+
+    // ubah angkatan lulus jadi spinner
+    // set spinner
+    private void populateAngkatan() {
+        ArrayList<String> years = new ArrayList<String>();
+        int lastYear = 2015;
+        for (int i = 1980; i <= lastYear; i++) {
+            years.add(Integer.toString(i));
+        }
+        ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.spinner_item_angkatan, years);
+        txtAngkatan.setAdapter(new NothingSelectedSpinnerAdapter(adapter, R.layout.spinner_item_angkatan, this));
     }
 }

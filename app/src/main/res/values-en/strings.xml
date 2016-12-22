@@ -37,6 +37,10 @@
     <string name="asrama_title">Hostel</string>
     <string name="jenis_kelamin">Gender</string>
     <string name="formnull">Form must be filled!</string>
+    <string name="angkatan">Generation</string>
+    <string name="send">Send</string>
+
+
 
     <!--beranda-->
     <string name="home">Home</string>
